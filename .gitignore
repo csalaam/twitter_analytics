@@ -1,0 +1,34 @@
+# Environments
+.venv*
+.conda
+.venv-twitter-analytics/
+/venv/
+/env/
+/.venv/
+
+# Data files
+data/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE and editor configuration
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (optional, uncomment if your data files are large)
+# *.csv
+# *.json
+
+# Environment variables
+.env
+.env.*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
