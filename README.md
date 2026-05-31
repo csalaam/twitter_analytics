@@ -1,6 +1,6 @@
 # Twitter Sentiment and Engagement Analysis
 
-## Description
+The most relevant file in this repo is twitter_analytics.ipynb, as the rest are unrelated.
 
 This project provides a comprehensive analysis of Twitter data, focusing on sentiment classification. It leverages natural language processing (NLP) techniques and a sophisticated deep learning model to classify tweet polarity into **Positive**, **Negative**, or **Neutral** categories, achieving a final **test accuracy of approximately 83%**.
 
