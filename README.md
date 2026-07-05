@@ -43,6 +43,20 @@ To run these notebooks, you will need a Python environment with the required lib
     ```
 5.  Open and run the cells in `twitter_analytics.ipynb`.
 
+### Preparing Xquik Exports
+
+Use `xquik_training_data.py` to turn a Xquik tweet export into the labeled CSV
+shape expected by the notebooks:
+
+```sh
+python xquik_training_data.py xquik_export.csv data/twitter_trainingdata.csv
+```
+
+The converter accepts common export aliases such as `full_text`, `tweet_text`,
+`content`, `sentiment`, `label`, and Sentiment140-style targets. It writes only
+the notebook fields `tweet` and `sentiment`, normalizes labels to `Positive`,
+`Negative`, or `Neutral`, and skips blank or unlabeled rows.
+
 ## Future Improvements
 
 This project provides a solid foundation, and here are some ways it could be improved:
