@@ -8,7 +8,7 @@ from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
 
 
-OUTPUT_COLUMNS = ["tweet", "sentiment"]
+OUTPUT_COLUMNS = ["Tweet", "Polarity"]
 
 TEXT_ALIASES = ("tweet", "text", "full_text", "tweet_text", "content", "body")
 SENTIMENT_ALIASES = ("sentiment", "label", "polarity", "target")
@@ -54,7 +54,7 @@ def normalize_xquik_row(row: Mapping[str, object]) -> dict[str, str] | None:
     sentiment = normalize_sentiment(_first_value(indexed_row, SENTIMENT_ALIASES))
     if not tweet or sentiment is None:
         return None
-    return {"tweet": tweet, "sentiment": sentiment}
+    return {"Tweet": tweet, "Polarity": sentiment}
 
 
 def normalize_xquik_rows(rows: Iterable[Mapping[str, object]]) -> list[dict[str, str]]:
@@ -80,7 +80,9 @@ def convert_csv(input_path: Path, output_path: Path) -> int:
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Convert Xquik exports to notebook training data.")
+    parser = argparse.ArgumentParser(
+        description="Convert Xquik exports to notebook training data."
+    )
     parser.add_argument("input_csv", type=Path)
     parser.add_argument("output_csv", type=Path)
     return parser.parse_args(argv)

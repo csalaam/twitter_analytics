@@ -45,23 +45,27 @@ To run these notebooks, you will need a Python environment with the required lib
 
 ### Preparing Xquik Exports
 
-Use `xquik_training_data.py` to turn a Xquik tweet export into the labeled CSV
-shape expected by the notebooks:
+Use `xquik_training_data.py` to turn a labeled export from
+[Xquik's X data platform](https://github.com/Xquik-dev/x-twitter-scraper) into
+the CSV shape expected by the notebooks:
 
 ```sh
 python xquik_training_data.py xquik_export.csv data/twitter_trainingdata.csv
 ```
 
 The converter accepts common export aliases such as `full_text`, `tweet_text`,
-`content`, `sentiment`, `label`, and Sentiment140-style targets. It writes only
-the notebook fields `tweet` and `sentiment`, normalizes labels to `Positive`,
-`Negative`, or `Neutral`, and skips blank or unlabeled rows.
+`content`, `sentiment`, `label`, and Sentiment140-style targets. The input must
+include a sentiment or label column. It writes the exact notebook fields `Tweet`
+and `Polarity`, normalizes labels to `Positive`, `Negative`, or `Neutral`, and
+skips blank or unlabeled rows.
+
+Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
 
 ## Future Improvements
 
 This project provides a solid foundation, and here are some ways it could be improved:
 
-*   **Add Unit Tests:** The project currently lacks automated tests. Adding a test suite for the data cleaning and preprocessing functions would improve reliability.
+*   **Expand Unit Tests:** The data adapter now has automated tests. Extending coverage to notebook preprocessing and model evaluation would improve reliability.
 *   **Refactor into Scripts:** The logic within the Jupyter notebooks could be refactored into reusable Python scripts. This would make it easier to run the analysis or train the model from the command line and prepare it for deployment.
 *   **Error Handling:** Adding checks for file existence and more descriptive error messages would make the project more robust.
 *   **Hyperparameter Tuning:** The deep learning model could be further optimized by systematically tuning hyperparameters like learning rate, dropout, and the number of neurons in each layer using tools like KerasTuner or Optuna.
