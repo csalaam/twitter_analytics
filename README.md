@@ -43,7 +43,15 @@ To run these notebooks, you will need a Python environment with the required lib
     ```
 5.  Open and run the cells in `twitter_analytics.ipynb`.
 
-### Preparing Xquik Exports
+## Custom Training Data via the Xquik Adapter
+
+Since this is a **supervised learning model**, it operates by using semantic context to infer sentiment analysis, not by generating the sentiment analysis logic itself. It sees a tweet and a label, and uses that semantic context to build a structural connection between them. 
+
+By default, the model is trained on the Sentiment140 dataset, which consists of 1 million tweets from 2009. The difference between 2009's Twitter and today's is night and day. 
+
+The **Xquik Adapter** is a plug-and-play module that easily allows users to adapt Xquik exports into a format that the model can natively understand and use as training data. This allows users to train the model on modern, domain-specific datasets, empowering the AI to accurately understand the current slang, context, and unique cultural dialects of any specific community they choose to target.
+
+## Preparing Xquik Exports
 
 Use `xquik_training_data.py` to turn a labeled export from
 [Xquik's X data platform](https://github.com/Xquik-dev/x-twitter-scraper) into
